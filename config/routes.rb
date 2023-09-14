@@ -6,5 +6,7 @@ Rails.application.routes.draw do
 
   root 'menu_orders#new'
 
+  get 'kitchen/orders_to_cook', to: 'kitchen#orders_to_cook'
+
   resources :menu_orders, only: %i[new create]
 end

@@ -8,7 +8,7 @@ class MenuOrdersController < ApplicationController
   end
 
   def create
-    order = OrderCreator.new(@menu, params[:ingredients_to_remove]).create_order
+    order = OrderCreator.new(@menu, params[:remove_ingredient_ids]).create_order
     if order
       flash[:notice] = I18n.t('menu_orders.new.notice')
       redirect_to root_path

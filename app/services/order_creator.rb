@@ -6,10 +6,10 @@ class OrderCreator
 
   def create_order
     menu_order = MenuOrder.create(menu: @menu)
-    return menu_order unless @ingredients_to_remove
+    return menu_order unless @ingredients_to_ignore
 
     @ingredients_to_ignore.each do |ingredient|
-      IngredientToIgnore.create(ingredient:, menu_order:)
+      IngredientToIgnore.create!(ingredient:, menu_order:)
     end
 
     menu_order.save
