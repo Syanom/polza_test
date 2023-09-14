@@ -1,0 +1,15 @@
+h1 = t('.order_header')
+h2 = t('.choose_ingredients_to_remove')
+= form_tag '/menu_orders' do
+  - if @ingredients
+    - @ingredients.each do |ingredient|
+      .ingredient-container
+        = label_tag do
+          = check_box_tag 'remove_ingredient_ids[]', ingredient.id, nil
+          = ingredient.name
+  
+  = hidden_field_tag 'menu_id', @menu.id if @menu
+
+  = submit_tag t('.create_order')
+
+= render @dishes if @dishes

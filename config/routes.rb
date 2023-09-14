@@ -3,4 +3,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+
+  root 'menu_orders#new'
+
+  resources :menu_orders, only: %i[new create]
 end

@@ -63,7 +63,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_14_093659) do
   end
 
   create_table "menu_orders", force: :cascade do |t|
-    t.boolean "delivered_to_kitchen"
+    t.boolean "delivered_to_kitchen", default: false
     t.bigint "menu_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
