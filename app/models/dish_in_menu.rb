@@ -1,0 +1,2 @@
+class DishInMenu < ApplicationRecord
+end
