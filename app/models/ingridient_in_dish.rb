@@ -1,0 +1,2 @@
+class IngridientInDish < ApplicationRecord
+end
