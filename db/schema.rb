@@ -39,8 +39,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_14_093659) do
   end
 
   create_table "ingredient_in_menus", force: :cascade do |t|
+    t.bigint "menu_id"
+    t.bigint "ingredient_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["ingredient_id"], name: "index_ingredient_in_menus_on_ingredient_id"
+    t.index ["menu_id"], name: "index_ingredient_in_menus_on_menu_id"
   end
 
   create_table "ingredient_to_ignores", force: :cascade do |t|
