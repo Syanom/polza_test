@@ -5,9 +5,6 @@ class MenuOrder < ApplicationRecord
 
   def dishes
     excluded_ingredient_ids = excluded_ingredients.map(&:id)
-    dish_ids = menu.dishes.map do |dish|
-      dish.id unless dish.ingredients.where(id: excluded_ingredient_ids).present?
-    end
-    Dish.where(id: dish_ids)
+    Dish.includes(:ingredients).where.not(ingredients: { id: excluded_ingredient_ids })
   end
 end
